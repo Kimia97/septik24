@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ListView
-import android.widget.Toolbar
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_vakter.*
 import kotlinx.android.synthetic.main.fragment_vakter.view.*
 
@@ -23,23 +20,22 @@ class VakterFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_vakter, container, false)
+        val rootview =  inflater.inflate(R.layout.fragment_vakter, container, false)
         (activity as MainActivity).supportActionBar?.title = getString(R.string.vakter_title)
         val arrayAdapter: ArrayAdapter<*>
         val testArray = arrayOf("14.09.2020", "15.09.2020", "16.09.2020")
-        println(vakter_list)
-        val listView = view.vakter_list
+        val listView = rootview.vakter_list
         arrayAdapter = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_list_item_1, testArray)
         listView.adapter = arrayAdapter
         // Inflate the layout for this fragment
-        return view
+        return rootview
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        view.findViewById<Button>(R.id.lag_ny_dagslogg_button).setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_dagsloggFragment)
         }
     }
 }
