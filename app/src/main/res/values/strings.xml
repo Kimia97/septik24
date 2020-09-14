@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Septik-24</string>
+    <string name="app_name">Septik 24</string>
     <string name="action_settings">Settings</string>
+    <string name="vakter_title">Vakter</string>
     <!-- Strings used for fragments for navigation -->
     <string name="welcome_label">Velkommen til Septik24s tank dagslogg app!</string>
     <string name="second_fragment_label">Second Fragment</string>
