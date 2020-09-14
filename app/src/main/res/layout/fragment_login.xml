@@ -41,12 +41,12 @@
         app:layout_constraintTop_toBottomOf="@id/textinput_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
+        app:layout_constraintBottom_toTopOf="@id/login_button"
         android:hint="Navn"
         />
 
     <Button
-        android:id="@+id/button_first"
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
