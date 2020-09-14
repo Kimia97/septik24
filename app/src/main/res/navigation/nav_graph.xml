@@ -22,7 +22,12 @@
         tools:layout="@layout/fragment_vakter">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SecondFragment_to_dagsloggFragment"
+            app:destination="@id/dagsloggFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/dagsloggFragment"
+        android:name="com.example.septik_24.DagsloggFragment"
+        android:label="fragment_dagslogg"
+        tools:layout="@layout/fragment_dagslogg" />
 </navigation>
