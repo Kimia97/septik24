@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "708760791732",
+    "firebase_url": "https://septik-24.firebaseio.com",
+    "project_id": "septik-24",
+    "storage_bucket": "septik-24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708760791732:android:81187796276fb3aaaf05e1",
+        "android_client_info": {
+          "package_name": "com.example.septik_24"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708760791732-nmmhe4alcfk3es04rf9qf9ca8r6go87g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.septik_24",
+            "certificate_hash": "94ec9f52aa76ad66b20c2179b0f7523d3e479b72"
+          }
+        },
+        {
+          "client_id": "708760791732-6hhidc208032vjat6n061aajahm2h70t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyB1ScbAS-CRMFJ7tn_LN8lHXNHXTEf0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708760791732-6hhidc208032vjat6n061aajahm2h70t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
