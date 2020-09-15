@@ -1,5 +1,7 @@
 package com.example.septik_24
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,16 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.textfield.TextInputEditText
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_dagslogg.view.*
 
 class DagsloggFragment: Fragment() {
     private var seddelnummerList = ArrayList<Int>()
-    private var kubikkList = ArrayList<Int>()
+    private var cubicList = ArrayList<Int>()
     private var visningList = ArrayList<String>()
     private var arrayAdapter: ArrayAdapter<*>? = null
+    private var totalCubic: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,12 +33,10 @@ class DagsloggFragment: Fragment() {
 
         seddelnummerList.add(1234)
         seddelnummerList.add(6789)
-        kubikkList.add(1000)
-        kubikkList.add(2000)
+        cubicList.add(1000)
+        cubicList.add(2000)
 
-        Log.d("sjekker: ", seddelnummerList.size.toString())
         addToVisningsList()
-        //val testArray = arrayOf("seddelnummer: 1234,  kubikk: 100000", "seddelnummer: 5678, kubikk: 1000000", "seddelnummer: 91011, kubikk: 234541151")
         val listView = rootView.dagslogg_list
         arrayAdapter = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_list_item_1, visningList)
         listView.adapter = arrayAdapter
@@ -47,24 +51,38 @@ class DagsloggFragment: Fragment() {
         var listContent: String
         val size = seddelnummerList.size
         for(i in 0 until size) {
-            listContent = ("Seddelnummer: "+ seddelnummerList[i].toString() +" , "  + "kubikk tømt: " + kubikkList[i].toString())
+            listContent = ("Seddelnummer: "+ seddelnummerList[i].toString() +" , "  + "kubikk tømt: " + cubicList[i].toString())
             visningList.add(listContent)
         }
+    }
+
+    fun calcTotalCubic(): Int {
+        for(cubic in cubicList) {
+            totalCubic += cubic
+        }
+        return totalCubic
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.legg_til_button).setOnClickListener {
-            var listView = view.dagslogg_list
             val textinput1 = view.dagslogg_textinput1.text.toString().toInt()
             val textinput2 = view.dagslogg_textinput2.text.toString().toInt()
 
             seddelnummerList.add(textinput1)
-            kubikkList.add(textinput2)
-            visningList.add("Seddelnummer: " + seddelnummerList.last().toString() + " , " + "kubikk tømt: " + kubikkList.last().toString())
+            cubicList.add(textinput2)
+            visningList.add("Seddelnummer: " + seddelnummerList.last().toString() + " , " + "kubikk tømt: " + cubicList.last().toString())
             arrayAdapter?.notifyDataSetChanged()
+        }
 
+
+        view.findViewById<Button>(R.id.send_in_button).setOnClickListener {
+            var args = Bundle()
+            args.putInt("totalCubic", calcTotalCubic())
+            val newDialog = ConfirmDialogFragment()
+            newDialog.arguments = args
+            activity?.supportFragmentManager?.let { it1 -> newDialog.show(it1, "confirm") }
         }
     }
 }

@@ -44,29 +44,6 @@ class VakterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.lag_ny_dagslogg_button).setOnClickListener {
-
-
-            val database = Firebase.database
-            val mRef = database.getReference("message")
-
-            val TAG = "TEST123"
-
-            Log.d(TAG, database.toString())
-            Log.d(TAG, mRef.toString())
-            mRef.setValue("TUSEN TAKK TRYM")
-                .addOnSuccessListener {
-                    Log.d(TAG, "SUCCESS")
-                }
-                .addOnFailureListener { ex : Exception ->
-                    Log.d("TAG", ex.toString())
-                }
-                .addOnCanceledListener {
-                    Log.d(TAG, "Canceled")
-                }
-                .addOnCompleteListener {
-                    Log.d(TAG, "COMPLETE")
-                }
-
             findNavController().navigate(R.id.action_SecondFragment_to_dagsloggFragment)
         }
     }

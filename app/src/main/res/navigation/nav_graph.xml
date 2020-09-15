@@ -29,5 +29,9 @@
         android:id="@+id/dagsloggFragment"
         android:name="com.example.septik_24.DagsloggFragment"
         android:label="fragment_dagslogg"
-        tools:layout="@layout/fragment_dagslogg" />
+        tools:layout="@layout/fragment_dagslogg" >
+        <action
+            android:id="@+id/action_dagsloggFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
 </navigation>

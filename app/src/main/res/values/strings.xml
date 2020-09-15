@@ -15,4 +15,6 @@
     <string name="dagslogg_title">Dagslogg</string>
     <string name="seddelnummer">Seddelnummer</string>
     <string name="kubikk_tomt">Kubikk tømt</string>
+    <string name="ok">Lag dagslogg</string>
+    <string name="cancel">Avslutt</string>
 </resources>
