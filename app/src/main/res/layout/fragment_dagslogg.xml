@@ -13,8 +13,33 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/send_in_button"
+        app:layout_constraintBottom_toTopOf="@id/dagslogg_textinput1"
         app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dagslogg_textinput1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dagslogg_list"
+        app:layout_constraintBottom_toTopOf="@id/dagslogg_textinput2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/seddelnummer"
+        android:inputType="number"
+
+        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dagslogg_textinput2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dagslogg_textinput1"
+        app:layout_constraintBottom_toTopOf="@id/legg_til_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/kubikk_tomt"
+        android:inputType="number"
+
         />
 
     <Button
@@ -25,7 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dagslogg_list" />
+        app:layout_constraintTop_toBottomOf="@id/dagslogg_textinput2" />
 
     <Button
         android:id="@+id/send_in_button"

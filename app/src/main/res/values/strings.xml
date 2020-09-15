@@ -13,4 +13,6 @@
     <string name="welcome_text_input_label">Skriv inn navn for å logge in</string>
     <string name="send_inn_button_text">Send inn dagslogg</string>
     <string name="dagslogg_title">Dagslogg</string>
+    <string name="seddelnummer">Seddelnummer</string>
+    <string name="kubikk_tomt">Kubikk tømt</string>
 </resources>
