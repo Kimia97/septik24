@@ -17,12 +17,12 @@ class ConfirmDialogFragment: DialogFragment() {
             val mArgs = arguments
             val totalCubic = mArgs?.getInt("totalCubic")
             builder.setMessage(
-                "Vil du legge til dagsloggen med total kubikk: $totalCubic?").setTitle(" Lag dagslogg")
+                "Vil du legge til dagsloggen med total kubikk tømt: $totalCubic?").setTitle(" Lag dagslogg")
             builder.apply {
                 setPositiveButton(R.string.ok
                 ) { dialog, id ->
                     val database = Firebase.database
-                    val dagslogg = Dagslogg(1, "16.09.2020", totalCubic )
+                    val dagslogg = Dagslogg("16.09.2020", totalCubic )
                     database.getReference("driver").child("1").setValue(dagslogg).addOnSuccessListener {
                         val toast = Toast.makeText(context, "Lagt til i database", Toast.LENGTH_SHORT)
                         toast.show()

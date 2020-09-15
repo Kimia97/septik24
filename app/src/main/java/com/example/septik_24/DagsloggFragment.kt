@@ -43,10 +43,6 @@ class DagsloggFragment: Fragment() {
         return rootView
     }
 
-    fun addToAdapter() {
-
-    }
-
     fun addToVisningsList() {
         var listContent: String
         val size = seddelnummerList.size
