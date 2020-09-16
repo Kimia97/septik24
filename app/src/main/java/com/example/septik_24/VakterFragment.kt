@@ -37,7 +37,7 @@ class VakterFragment : Fragment() {
 
         (activity as MainActivity).supportActionBar?.title = getString(R.string.vakter_title)
         val database = Firebase.database
-        var ref = database.getReference("driver").child("1")
+        val ref = database.getReference("driver").child("1")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Log.w("Check here", "loadPost:onCancelled", error.toException())

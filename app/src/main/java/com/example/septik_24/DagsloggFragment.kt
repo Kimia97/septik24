@@ -43,7 +43,7 @@ class DagsloggFragment: Fragment() {
         return rootView
     }
 
-    fun addToVisningsList() {
+    private fun addToVisningsList() {
         var listContent: String
         val size = seddelnummerList.size
         for(i in 0 until size) {
@@ -52,7 +52,7 @@ class DagsloggFragment: Fragment() {
         }
     }
 
-    fun calcTotalCubic(): Int {
+    private fun calcTotalCubic(): Int {
         for(cubic in cubicList) {
             totalCubic += cubic
         }
@@ -74,7 +74,7 @@ class DagsloggFragment: Fragment() {
 
 
         view.findViewById<Button>(R.id.send_in_button).setOnClickListener {
-            var args = Bundle()
+            val args = Bundle()
             args.putInt("totalCubic", calcTotalCubic())
             val newDialog = ConfirmDialogFragment()
             newDialog.arguments = args
